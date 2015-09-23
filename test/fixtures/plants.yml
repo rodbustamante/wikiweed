@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  summary: MyText
+  characteristics: MyText
+  percent_sativa: 1
+  percent_indica: 1
+  thc: 1
+  visits: 1
+  image: MyString
+  video: MyString
+
+two:
+  name: MyString
+  summary: MyText
+  characteristics: MyText
+  percent_sativa: 1
+  percent_indica: 1
+  thc: 1
+  visits: 1
+  image: MyString
+  video: MyString

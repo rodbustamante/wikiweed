@@ -1,0 +1,56 @@
+<div class="pre-header">
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-3 col-sm-3">
+		 		<a class="site-logo" href="<%= root_path %>">
+		 			<img src="http://placehold.it/190x70" alt="Metronic FrontEnd">
+		 		</a>
+    		</div>	
+    		<div class="col-md-6 col-sm-6 search-varieties">
+				<%= search_field(:option, :search, :placeholder => "Encuentra variedades", :class => "search-plant", :remote => true) %>
+				<div class="search-results hide container pull-left col-md-6 col-sm-6">
+					<ul class="list-unstyled">
+					</ul>
+				</div>
+
+    		</div>	
+    		<div class="col-md-3 col-sm-3">
+    			<ul class="list-login list-unstyled list-inline pull-right">
+                    <li><a href="page-login.html">Log In</a></li>
+                    <li><a href="page-reg-page.html">Registration</a></li>
+                </ul>
+    		</div>	
+    	</div>	    		
+    </div>        
+</div>
+
+<div class="header">
+	<div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-md-offset-4 additional-shop-info">
+				<nav class="header-navigation pull-left font-transform-inherit">
+					<ul>
+						<li class="dropdown">
+							<%= link_to "Home", root_path %>  
+						</li>
+						<li class="dropdown">
+							<%= link_to "Noticias", root_path %>  
+						</li>
+						<li class="dropdown">
+							<%= link_to "Growshops", root_path %>  
+						</li>			
+						<li class="dropdown">
+							<%= link_to "Variedades", plants_path, {:class => "dropdown-toggle"} %>  
+							<ul class="dropdown-menu">
+								<% categories.each do |category| %>
+								  <li><%= link_to category.name, category %></li>
+								<% end %>
+								
+							</ul>
+						</li>
+					</ul>
+				</nav>
+            </div>
+        </div>	    		
+	</div>	
+</div>

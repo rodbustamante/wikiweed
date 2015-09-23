@@ -1,0 +1,32 @@
+<div class="container-liquid margin-bottom-10">
+	<% if !@plant.nil? %>
+		<div class="row">
+			<%= image_tag(@plant.image, width: '100%') %>			
+		</div>	
+	<% else %>	
+		<%= image_tag('hola', width: '100%') %>			
+	<% end %>	
+</div>
+<div class="container">
+	<div class="row margin-bottom-40">
+		<div class="col-md-12 col-sm-12">
+			<h1>
+				<% if !@plant.nil? %>
+					<%= @plant.name %>
+				<% else %>
+					<%= 'LA PLANTA QUE BUSCAS NO EXISTE.........ME LA FUME.' %>
+				<% end %>
+			</h1>	
+			
+			<div class="content-page center">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Resumen</h3>
+						<p><%= @plant.summary %></p>
+
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>		
