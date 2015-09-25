@@ -13,6 +13,5 @@ class CreatePlants < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :plants, :name
   end
 end

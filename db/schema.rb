@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817205319) do
+ActiveRecord::Schema.define(version: 20150925183016) do
 
   create_table "categories", force: true do |t|
-    t.text     "name"
+    t.string   "name"
+    t.integer  "sort_order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -25,15 +26,62 @@ ActiveRecord::Schema.define(version: 20150817205319) do
     t.datetime "updated_at"
   end
 
-  create_table "plant_categories", force: true do |t|
+  create_table "flavors", force: true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "growshops", force: true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "cellphone"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "has_categories", force: true do |t|
     t.integer  "plant_id"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "plant_categories", ["category_id"], name: "index_plant_categories_on_category_id", using: :btree
-  add_index "plant_categories", ["plant_id"], name: "index_plant_categories_on_plant_id", using: :btree
+  add_index "has_categories", ["category_id"], name: "index_has_categories_on_category_id", using: :btree
+  add_index "has_categories", ["plant_id"], name: "index_has_categories_on_plant_id", using: :btree
+
+  create_table "has_flavors", force: true do |t|
+    t.integer  "flavor_id"
+    t.integer  "plant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "has_flavors", ["flavor_id"], name: "index_has_flavors_on_flavor_id", using: :btree
+  add_index "has_flavors", ["plant_id"], name: "index_has_flavors_on_plant_id", using: :btree
+
+  create_table "has_plants", force: true do |t|
+    t.integer  "plant_id"
+    t.integer  "growshop_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "has_plants", ["growshop_id"], name: "index_has_plants_on_growshop_id", using: :btree
+  add_index "has_plants", ["plant_id"], name: "index_has_plants_on_plant_id", using: :btree
+
+  create_table "image_plants", force: true do |t|
+    t.string   "image"
+    t.integer  "plant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "image_plants", ["plant_id"], name: "index_image_plants_on_plant_id", using: :btree
 
   create_table "plants", force: true do |t|
     t.string   "name"
@@ -48,9 +96,26 @@ ActiveRecord::Schema.define(version: 20150817205319) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "family_id"
+    t.integer  "seed_bank_id"
   end
 
-  add_index "plants", ["family_id"], name: "index_plants_on_family_id", using: :btree
-  add_index "plants", ["name"], name: "index_plants_on_name", using: :btree
+  create_table "reviews", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "score"
+    t.integer  "plant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["plant_id"], name: "index_reviews_on_plant_id", using: :btree
+
+  create_table "seed_banks", force: true do |t|
+    t.string   "name"
+    t.text     "summary"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

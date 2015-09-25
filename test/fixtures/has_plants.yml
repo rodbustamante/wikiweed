@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  order: 1
+  plant_id: 
+  growshop_id: 
 
 two:
-  name: MyString
-  order: 1
+  plant_id: 
+  growshop_id: 

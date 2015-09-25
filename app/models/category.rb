@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
-	has_many :plantCategories
-	has_many :plants, through: :plantCategories
+	has_many :plant, :through => :hascategory
+	has_many :hascategory
 end

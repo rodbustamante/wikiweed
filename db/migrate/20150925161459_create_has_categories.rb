@@ -1,6 +1,6 @@
-class CreatePlantCategories < ActiveRecord::Migration
+class CreateHasCategories < ActiveRecord::Migration
   def change
-    create_table :plant_categories do |t|
+    create_table :has_categories do |t|
       t.references :plant, index: true
       t.references :category, index: true
 

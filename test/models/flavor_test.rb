@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PlantCategoryTest < ActiveSupport::TestCase
+class FlavorTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

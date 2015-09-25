@@ -2,8 +2,10 @@
 
 one:
   name: MyString
-  order: 1
+  image: MyString
+  image: MyString
 
 two:
   name: MyString
-  order: 1
+  image: MyString
+  image: MyString
