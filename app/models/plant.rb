@@ -1,5 +1,6 @@
 class Plant < ActiveRecord::Base
-	belongs_to :family
+	belongs_to :family 
+	belongs_to :strain 
 	has_many :has_categories
 
 	#scopes

@@ -42,8 +42,8 @@
 						<li class="dropdown">
 							<%= link_to "Variedades", plants_path, {:class => "dropdown-toggle"} %>  
 							<ul class="dropdown-menu">
-								<% categories.each do |category| %>
-								  <li><%= link_to category.name, category %></li>
+								<% strains.each do |strain| %>
+								  <li><%= link_to strain.name, strain %></li>
 								<% end %>
 								
 							</ul>
@@ -52,5 +52,10 @@
 				</nav>
             </div>
         </div>	    		
-	</div>	
+	</div>
+</div>
+
+<div class="nav">
+<%= breadcrumbs display_single_fragment: true, style: :bootstrap, separator: '' %>	
+	
 </div>

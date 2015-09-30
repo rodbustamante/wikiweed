@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :plants, :path => 'plantas'
   resources :categories, :path => 'categorias'
+  resources :strains, :path => 'cepas'
 
   post 'plants/autocomplete/:name', :to => 'plants#autocomplete'
   # The priority is based upon order of creation: first created -> highest priority.
