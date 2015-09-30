@@ -2,11 +2,11 @@
 	<div class="row margin-bottom-40">
 		<div class="col-md-12 col-sm-12">
 			<h2><%= @category.name %></h2>
-				<div>
-					<% @category.plants.each do |plant| %>
-						<%= link_to plant.name, plant %>						
-					<% end %>
-				</div>
+			<div>
+				<% @category.plants.each do |plant| %>
+					<%= link_to plant.name, plant %>						
+				<% end %>
+			</div>
 		</div>	
 	</div>	
 </div>	

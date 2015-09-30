@@ -1,14 +1,17 @@
 class PlantsController < ApplicationController
+	rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
 	def index
 		@plants = Plant.all 
 	end
 
 	def show
-		begin	
-			@plant = Plant.find(params[:id])
-		rescue ActiveRecord::RecordNotFound => e
-			@plant = nil
+		@plant = Plant.find_by_slug(params[:id])
+
+		if !@plant.nil? 
+			@title = @plant.name.capitalize
+		else 
+			redirect_to action: :index	
 		end	
 	end
 
@@ -23,5 +26,9 @@ class PlantsController < ApplicationController
 	      format.json  { render :json => @plants, :status => :ok }
 	    end
 	end 
+
+	def record_not_found
+		redirect_to action: :index
+	end
 
 end
