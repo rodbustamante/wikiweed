@@ -28,6 +28,16 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Gema utilizada para generar breadcrumbs
 gem 'gretel'
 
+# gema para declarar variables de entorno
+group :development, :test do
+ gem 'dotenv-rails'
+end
+
+#Gemas utilizadas para login de usuarios con correo y Facebook
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

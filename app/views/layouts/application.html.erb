@@ -33,9 +33,11 @@
 	</head>
 	
 	<body class="corporate">
-		
+		<p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
 	    <%= render "elements/header" %> 
 		 <div class="main">
+		 	<%= render 'elements/facebook_sdk' %>
 			<%= yield %>
 		</div>	
 	</body>

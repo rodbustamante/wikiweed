@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { 
+  registrations: "users/registrations",
+  sessions: "users/sessions",
+  passwords: "users/passwords"}
+
+  #devise_for :users, controllers: { 
+  #registrations: "users/registrations",
+  #sessions: "users/sessions",
+  #passwords: "users/passwords",
+  #omniauth_callbacks: "users/omniauth_callbacks"}
+
   resources :plants, :path => 'plantas'
   resources :categories, :path => 'categorias'
   resources :strains, :path => 'cepas'

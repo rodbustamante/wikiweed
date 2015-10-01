@@ -16,8 +16,21 @@
     		</div>	
     		<div class="col-md-3 col-sm-3">
     			<ul class="list-login list-unstyled list-inline pull-right">
-                    <li><a href="page-login.html">Log In</a></li>
-                    <li><a href="page-reg-page.html">Registration</a></li>
+    				<% if user_signed_in? %>
+                    	<li>
+                    		<%= link_to 'Perfil', edit_user_registration_path %>             
+                    	</li>
+                    	<li>
+                    		<%= link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete %>
+                    	</li>
+                    <% else %>	
+						<li class="col-md">
+							<%= link_to 'Registrate', new_user_registration_path %>
+						</li>
+                    	<li class="col-md">
+							<%= link_to 'Iniciar Sesion', new_user_session_path %>
+						</li>
+                    <% end %>	
                 </ul>
     		</div>	
     	</div>	    		
