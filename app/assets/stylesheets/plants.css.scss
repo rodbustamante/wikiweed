@@ -1,9 +1,11 @@
 // Place all the styles related to the plant controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.main .container-liquid {
-	height: 500px;
-	overflow: hidden;
-	margin-top: -23px;
-	opacity: 0.9;
-}
+.main {
+	.container-liquid {
+		height: 500px;
+		overflow: hidden;
+		margin-top: -23px;
+		opacity: 0.9;
+	}
+} 

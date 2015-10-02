@@ -1,0 +1,920 @@
+/* elements */
+@import "elements/colors"
+@import "elements/fonts"
+@import "elements/urls"
+
+body 
+ color: $color_river_bed_approx
+ direction: ltr
+ font: 400 13px $font_0, $font_1, $font_2
+ background: $white
+ &.page-header-fixed 
+  padding-top: 88px !important
+
+
+h1 
+ font: 300 'Open Sans', sans-serif
+ margin: 0 0 10px
+ margin-bottom: 15px
+
+h2 
+ font: 300 'Open Sans', sans-serif
+ margin: 0 0 10px
+
+h3 
+ font: 300 'Open Sans', sans-serif
+ margin: 0 0 10px
+
+h4 
+ font: 300 'Open Sans', sans-serif
+ margin: 0 0 10px
+
+h5 
+ font: 300 'Open Sans', sans-serif
+ margin: 0 0 10px
+
+h6 
+ font: 300 'Open Sans', sans-serif
+ margin: 0 0 10px
+
+a 
+ outline: 0
+ text-decoration: none
+ &:focus 
+  outline: 0
+  text-decoration: none
+
+ &:hover 
+  outline: 0
+  text-decoration: none
+  text-decoration: underline
+
+ &:active 
+  outline: 0
+  text-decoration: none
+
+
+.no-padding 
+ padding: 0 !important
+
+.no-margin 
+ margin: 0 !important
+
+.no-bottom-space 
+ padding-bottom: 0 !important
+ margin-bottom: 0 !important
+
+.no-top-space 
+ padding-top: 0 !important
+ margin-top: 0 !important
+
+.no-space 
+ margin: 0 !important
+ padding: 0 !important
+
+.no-text-shadow 
+ //If you use compass, instead of the line below you could use + text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ text-shadow: none !important
+
+.padding-top-5 
+ padding-top: 5px !important
+
+.padding-top-10 
+ padding-top: 10px !important
+
+.padding-top-15 
+ padding-top: 15px !important
+
+.padding-top-20 
+ padding-top: 20px !important
+
+.padding-top-25 
+ padding-top: 25px !important
+
+.padding-top-30 
+ padding-top: 30px !important
+
+.padding-top-35 
+ padding-top: 35px !important
+
+.padding-top-40 
+ padding-top: 40px !important
+
+.padding-top-45 
+ padding-top: 45px !important
+
+.padding-top-50 
+ padding-top: 50px !important
+
+.padding-top-60 
+ padding-top: 60px !important
+
+.margin-bottom-0 
+ margin-bottom: 0 !important
+
+.margin-bottom-5 
+ margin-bottom: 5px !important
+
+.margin-bottom-10 
+ margin-bottom: 10px !important
+
+.margin-bottom-15 
+ margin-bottom: 15px !important
+
+.margin-bottom-20 
+ margin-bottom: 20px !important
+
+.margin-bottom-25 
+ margin-bottom: 25px !important
+
+.margin-bottom-30 
+ margin-bottom: 30px !important
+
+.margin-bottom-35 
+ margin-bottom: 35px !important
+
+.margin-bottom-40 
+ margin-bottom: 40px !important
+
+.margin-bottom-50 
+ margin-bottom: 50px !important
+
+.margin-bottom-60 
+ margin-bottom: 60px !important
+
+.margin-bottom-65 
+ margin-bottom: 65px !important
+
+.margin-top-10 
+ margin-top: 10px !important
+
+.margin-left-0 
+ margin-left: 0 !important
+
+.margin-right-0 
+ margin-right: 0 !important
+
+.margin-right-20 
+ margin-right: 20px !important
+
+.margin-left-20 
+ margin-left: 20px !important
+
+.padding-left-0 
+ padding-left: 0 !important
+
+.padding-right-0 
+ padding-right: 0 !important
+
+.padding-right-30 
+ padding-right: 30px !important
+
+.margin-right-10 
+ margin-right: 10px !important
+
+div 
+ &.checker 
+  top: -1px
+
+ &.radio 
+  top: -1px
+
+ &.content-form-page 
+  background: $white
+  padding: 5px 20px 30px
+  margin-right: 10px
+  .checkbox-list 
+   margin-left: -3px
+
+
+
+.clear 
+ clear: both
+ height: 0
+ font-size: 0
+ line-height: 0
+ overflow: hidden
+
+.lead 
+ font-size: 16px
+
+.font-transform-inherit 
+ text-transform: inherit !important
+
+.color-red 
+ color: $color_pomegranate_approx
+
+::-webkit-scrollbar 
+ width: 12px
+
+::-webkit-scrollbar-track 
+ background-color: $color_gray_nurse_approx
+ border-left: 1px solid $color_celeste_approx
+ //If you use compass, instead of the line below you could use + border-radius($radius, $vertical-radius)
+ border-radius: 0
+ //If you use compass, instead of the line below you could use + box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ box-shadow: none
+ border: 0
+
+::-webkit-scrollbar-thumb 
+ background-color: $color_celeste_approx
+ //If you use compass, instead of the line below you could use + border-radius($radius, $vertical-radius)
+ border-radius: 0
+ //If you use compass, instead of the line below you could use + box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ box-shadow: none
+ border: 0
+ &:hover 
+  background-color: $color_silver_chalice_approx
+
+
+@-ms-viewport 
+ width: auto !important
+
+::-moz-selection 
+ color: $white
+ background: $color_turquise_green
+
+::selection 
+ color: $white
+ background: $color_turquise_green
+
+.min-hight500 
+ min-height: 500px
+
+.pre-header 
+ border-bottom: 1px solid $color_gallery_approx
+ padding-top: 10px
+ line-height: 1.2
+ background: $white
+ a 
+  color: $color_nevada_approx
+  &:hover 
+
+  &:focus 
+   text-decoration: none
+
+
+ li 
+  padding-left: 11px
+  padding-right: 15px
+  border-right: solid 1px $color_iron_approx
+  &:last-child 
+   border: none
+
+
+ .fa 
+  margin-right: 4px
+
+ .container 
+  .list-login 
+   padding-top: 30px
+   li
+    a
+     font-weight: 600 
+    a:hover
+     color: $color_punch_approx
+     text-decoration: none
+
+
+  .search-varieties 
+   padding-top: 30px
+   input 
+    height: 100%
+    width: 100%
+    border: 1px solid #d5d5d5
+    border-radius: 5px
+    box-sizing: border-box
+    padding: 0 1rem
+    outline: none
+    box-shadow: none
+    min-height: 42px
+
+.header 
+ //If you use compass, instead of the line below you could use + box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ box-shadow: 0 1px 3px $color_alto_approx
+ background: $white
+ //If you use compass, instead of the line below you could use + border-radius($radius, $vertical-radius)
+ border-radius: 0
+ z-index: 999
+ position: relative
+ background-color: $color_alabaster_approx
+ .container 
+  position: relative
+
+.site-logo 
+ float: left
+ font-size: 23px
+ font-weight: 400
+ margin-right: 67px
+ padding-top: 10px
+ padding-bottom: 10px
+
+.header-navigation 
+ font: 15px $font_0, $font_2
+ margin: 0 10px 0 0
+ padding: 0
+ float: left
+ text-transform: uppercase
+ position: static
+ ul 
+  margin: 0
+  padding: 0
+  list-style: none
+  > li 
+   &.active > a 
+    color: $color_punch_approx
+    text-decoration: none
+    border-bottom: 2px solid $color_trinidad_approx
+
+   > a 
+    &:hover 
+     color: $color_punch_approx
+     text-decoration: none
+
+    &:focus 
+     color: $color_punch_approx
+     text-decoration: none
+
+
+   &.open > a 
+    color: $color_punch_approx
+    text-decoration: none
+    &:hover 
+     color: $color_punch_approx
+     text-decoration: none
+
+    &:focus 
+     color: $color_punch_approx
+     text-decoration: none
+
+
+ .dropdown 
+  position: static
+
+ .dropdown-fix-left 
+  position: relative
+
+ .dropdown-fix-right 
+  position: relative
+
+ .dropdown-menu 
+  left: auto
+  top: 100%
+  padding: 0
+  background: $white
+  position: absolute
+  border: none
+  //If you use compass, instead of the line below you could use + box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 5px 5px $color_chicago_20_approx
+  text-transform: none
+  font: 13px $font_0, $font_2
+  letter-spacing: 0
+  //If you use compass, instead of the line below you could use + border-radius($radius, $vertical-radius)
+  border-radius: 0
+  z-index: 9999
+  &:before 
+   display: none !important
+
+  &:after 
+   display: none !important
+
+  li 
+   padding: 0
+   margin: 0
+   border-bottom: solid 1px $gallery
+   position: relative
+   float: none
+   &:last-child 
+    border: none
+
+   > a 
+    padding: 10px 15px
+    font-weight: 400
+    color: $color_raven_approx
+
+
+  .dropdown-menu 
+   left: 100%
+   right: auto
+   top: 6px
+
+  a 
+   position: relative
+
+  .fa 
+   position: absolute
+   top: 13px
+   right: 15px
+
+  > li 
+   &:first-child 
+    border-top: solid 3px $color_punch_approx
+
+   > a:hover 
+    background: $color_punch_approx
+    color: $white
+
+   &.active > a 
+    background: $color_punch_approx
+    color: $white
+
+
+  .header-navigation-content-ext li 
+   border: none
+   > a 
+    padding: 0 0 10px
+    color: $color_raven_approx
+    display: inline-block
+    &:hover 
+     background: $white
+     color: $color_trinidad_approx
+
+
+   &.active > a 
+    background: $white
+    color: $color_trinidad_approx
+
+
+
+ li 
+  &.menu-search 
+   position: relative
+   top: 26px
+   i 
+    color: $color_mine_shaft_approx
+    font-size: 16px
+    cursor: pointer
+    position: relative
+    top: -6px
+    width: 15px
+    height: 15px
+    opacity: 0.6
+    &:hover 
+     background-position: 0 -15px
+
+
+   span.sep 
+    top: 0
+    width: 1px
+    height: 26px
+    background: $color_gray_nurse_approx
+    position: relative
+    margin: 0 18px 0 16px
+    display: inline-block
+
+
+  &.dropdown100 > .dropdown-menu:after 
+   display: none !important
+
+ > ul > li 
+  float: left
+  > 
+   a 
+    color: $color_mine_shaft_approx
+    display: block
+    padding: 20px 12px
+
+   .dropdown-menu 
+    margin-top: -5px
+    border-top: solid 3px transparent
+    z-index: 1001
+
+
+  &.dropdown:hover > a:after 
+   bottom: 0
+   width: 0
+   height: 0
+   z-index: 1002
+   content: " "
+   display: block !important
+   position: absolute
+   border-bottom: 8px solid $color_punch_approx
+   border-right: 8px solid transparent
+   border-left: 8px solid transparent
+
+
+ .dropdown100 > .dropdown-menu 
+  left: 15px
+  right: 15px
+
+ .header-navigation-content .header-navigation-col li 
+  > a:hover 
+   background: $color_punch_approx
+   color: $white
+
+  &.active > a 
+   background: $color_punch_approx
+   color: $white
+
+
+
+@media(min-width: 1025px) 
+ .header-navigation > ul > li:hover > .dropdown-menu 
+  display: block
+
+ .reduce-header .header-navigation 
+  > ul > li > a 
+   padding: 16px 12px 17px
+
+  li.menu-search 
+   top: 14px
+
+.header-navigation-content-ext 
+ padding: 20px 30px 2px
+ background: $white
+ h4 
+  border: none
+  padding: 10px 0 0
+
+
+.header-navigation-description 
+ background: $color_alabaster_approx
+ margin: -20px 0 -2px -30px
+ padding: 20px
+ //If you use compass, instead of the line below you could use + box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ box-shadow: 0 0 20px $color_chicago_20_approx inset
+
+.page-slider 
+ margin-top: -25px
+ clear: both
+
+.sidebar 
+ color: $color_river_bed_approx
+ .list-group-item 
+  background: $wild_sand_50
+  border: none
+  display: block
+  margin-bottom: 2px
+  padding: 7px 10px
+  position: relative
+  //If you use compass, instead of the line below you could use + border-radius($radius, $vertical-radius)
+  border-radius: 0
+  &:last-child 
+   margin: 0
+
+
+ a 
+  color: $color_river_bed_approx
+  &:hover > .fa-angle-down 
+   background-position: -11px 0
+
+
+ .dropdown-menu 
+  //If you use compass, instead of the line below you could use + background-clip($clip)
+  background-clip: padding-box
+  background: $white
+  border: none
+  //If you use compass, instead of the line below you could use + border-radius($radius, $vertical-radius)
+  border-radius: 0
+  //If you use compass, instead of the line below you could use + box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: none
+  display: none
+  float: none
+  font-size: 14px
+  list-style: none
+  margin: 0 -10px
+  min-width: auto
+  padding: 5px 10px 1px 19px
+  position: relative
+  top: 0
+  left: 0
+  z-index: 1000
+  font: 15px $font_3, $font_2
+  &:after 
+   display: none !important
+
+  &:before 
+   display: none !important
+
+  .dropdown-menu 
+   border-top: none
+   margin-bottom: -5px
+   margin-right: -10px
+
+  li 
+   padding: 4px 0 3px 11px
+   position: relative
+
+  ul 
+   padding: 0
+   margin: 0 0 0 4px
+   list-style: none
+   text-transform: none
+   font-size: 15px
+
+  > li > a 
+   clear: both
+   line-height: inherit
+   padding: 0
+   white-space: inherit
+   .fa-angle-down 
+    position: absolute
+    top: 8px
+    right: 0
+
+ .collapsed 
+  .fa-angle-down 
+   background-position: 0 -37px
+
+  &:hover > .fa-angle-down 
+   background-position: -11px -37px
+
+
+ .dropdown.open .dropdown-toggle 
+  background: $white
+  color: $color_river_bed_approx
+  &:hover 
+
+
+ .dropup.open > .dropdown-toggle 
+  border-color: none !important
+
+ .open>.dropdown-menu 
+  display: block
+
+
+.sidebar-menu 
+ a 
+  display: block
+  &:hover 
+   text-decoration: none
+
+
+ .fa-angle-right 
+  position: relative
+  top: 1px
+  margin-right: 2px
+  float: left
+
+ .dropdown-menu li > a 
+  &:hover 
+   background: none !important
+
+  &:focus 
+   background: none !important
+
+
+ li.active > a 
+  background: none !important
+  &:hover 
+   background: none !important
+
+.title-wrapper 
+ margin: -23px 0 23px
+ position: relative
+ background: $color_malibu_approx $url_6 no-repeat 100% 100%
+ min-height: 280px
+ padding-top: 79px
+ width: 100%
+ overflow: hidden
+ .container-inner 
+  float: left
+
+ em 
+  font-size: 20px
+  font-style: normal
+  display: block
+  text-align: center
+
+ h1 span 
+  color: $color_trinidad_approx
+
+
+
+.breadcrumb 
+ background: rgba(212, 71, 39, 0.5) !important
+ font: 14px $font_0, $font_2
+ color: $white
+ margin-bottom: 22px
+ z-index: 10
+ position: absolute
+ width: 100%
+ height: 60px
+ > 
+ .active 
+  color: $color_punch_approx !important
+ a, a:hover 
+  color: $white
+ 
+
+
+.pagination 
+ //If you use compass, instead of the line below you could use + border-radius($radius, $vertical-radius)
+ border-radius: 0
+ margin: 0
+ > li 
+  display: inline-block
+  margin-left: 5px
+  > 
+   a 
+
+   span 
+    background: $color_fuscous_gray_approx
+    color: $white
+    &:hover 
+     background: $color_fuscous_gray_approx
+     color: $white
+
+
+
+  &:first-child > 
+   a 
+    padding: 4px 12px 8px
+
+   span 
+
+
+  &:last-child > 
+   a 
+    padding: 4px 12px 8px
+
+   span 
+
+
+
+
+.items-info 
+ padding-top: 7px
+ color: $color_oslo_gray_approx
+
+.content-page 
+ background: $white
+ padding: 20px
+ margin-right: 10px
+ a 
+  color: $color_raven_approx
+  &:hover 
+
+
+ .link 
+  &:hover 
+
+  &:active 
+
+
+ h2 
+  padding-top: 10px
+
+ h3 
+  padding-top: 10px
+  font-size: 20px
+  margin-bottom: 7px
+
+ h4 
+  padding-top: 10px
+  font-size: 17px
+  margin-bottom: 4px
+
+ h5 
+  padding-top: 10px
+  font: 700 15px $font_0, $font_1, $font_2
+  margin-bottom: 2px
+
+ h6 
+  padding-top: 10px
+  font: 700 15px $font_0, $font_1, $font_2
+  margin-bottom: 2px
+
+ p 
+  margin-bottom: 20px
+
+ .list-unstyled 
+  margin-bottom: 20px
+  .list-unstyled 
+   margin-left: 20px
+   padding-top: 3px
+   margin-bottom: 0
+
+  li 
+   margin-bottom: 3px
+
+
+ .front-lists-v2 li 
+  color: $color_fuscous_gray_approx
+  font-size: 16px
+  margin-bottom: 14px
+  text-transform: uppercase
+
+
+.corporate 
+ .content-page 
+  padding: 0 0 20px
+
+ .page-404 
+  text-align: center
+  padding-top: 60px
+  padding-bottom: 125px
+
+ .page-500 
+  text-align: center
+  padding-top: 60px
+  padding-bottom: 60px
+
+ .pre-footer-subscribe-box h2 
+
+
+.page-404 
+ .number 
+  position: relative
+  top: 35px
+  display: inline-block
+  letter-spacing: -10px
+  margin-top: 0
+  margin-bottom: 10px
+  line-height: 128px
+  font-size: 128px
+  font-weight: 300
+  text-align: right
+
+ .details 
+  margin-left: 40px
+  display: inline-block
+  padding-top: 0
+  text-align: left
+  top: 15px
+  position: relative
+
+
+.page-500 
+ .number 
+  display: inline-block
+  letter-spacing: -10px
+  line-height: 128px
+  font-size: 128px
+  font-weight: 300
+  text-align: right
+
+ .details 
+  margin-left: 40px
+  display: inline-block
+  text-align: left
+
+
+.content-form-page 
+ a 
+  color: $color_raven_approx
+  &:hover 
+
+
+ legend 
+  border: none
+  font-size: 18px
+  padding-top: 20px
+  margin-bottom: 10px
+  color: $color_river_bed_approx
+
+ .control-label 
+  font-weight: normal
+  padding-right: 5px
+  margin-left: -15px
+
+ .btn 
+  margin-right: 10px
+
+ input.form-control 
+  border-color: $alto
+  color: $color_silver_chalice_approx
+  font: 14px $font_1, $font_2
+  //If you use compass, instead of the line below you could use + border-radius($radius, $vertical-radius)
+  border-radius: 0
+
+ .form-control:focus 
+  //If you use compass, instead of the line below you could use + box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: none
+  border: solid 1px $color_pomegranate_approx
+
+ .checkbox .col-lg-4 
+  padding-right: 0
+  margin-left: -15px
+
+
+.form-without-legend 
+ padding-top: 25px
+
+.require 
+ color: $color_pomegranate_approx
+
+.form-info 
+ padding: 0 10px 0 30px
+ border-left: solid 1px $color_mercury_approx
+ margin: 25px 0
+ h2 
+  em 
+   font-style: normal
+   color: $color_trinidad_approx
+
+
+ p 
+  margin: 0 0 20px
+
+
+ button 
+  margin-left: 0 !important
+  font-size: 14px
+  height: 35px
+
+ h1 em 
+  font-style: normal
+  color: $color_trinidad_approx
+
+

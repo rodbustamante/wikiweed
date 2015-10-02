@@ -33,10 +33,10 @@
 	</head>
 	
 	<body class="corporate">
-		<p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+		
 	    <%= render "elements/header" %> 
 		 <div class="main">
+		 	<%= breadcrumbs display_single_fragment: true, style: :bootstrap, separator: '', class: 'breadcrumb' %>	
 		 	<%= render 'elements/facebook_sdk' %>
 			<%= yield %>
 		</div>	
