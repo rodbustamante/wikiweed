@@ -25,7 +25,22 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+# Gema utilizada para generar breadcrumbs
+gem 'gretel'
 
+# gema para declarar variables de entorno
+group :development, :test do
+ gem 'dotenv-rails'
+end
+
+#Gemas utilizadas para login de usuarios con correo y Facebook
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem "font-awesome-rails"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

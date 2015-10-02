@@ -1,0 +1,13 @@
+<% breadcrumb @strain %>
+<div class="container">
+	<div class="row margin-bottom-40">
+		<div class="col-md-12 col-sm-12">
+			<h2><%= @strain.name %></h2>
+			<div>
+				<% @strain.plants.each do |plant| %>
+					<%= link_to plant.name, plant %>						
+				<% end %>
+			</div>
+		</div>	
+	</div>	
+</div>	
