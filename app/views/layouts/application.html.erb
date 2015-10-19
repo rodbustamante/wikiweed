@@ -33,12 +33,12 @@
 	</head>
 	
 	<body class="corporate">
-		
+		<%= render "elements/facebook_sdk" %>
 	    <%= render "elements/header" %> 
-		 <div class="main">
+		<div class="main">
 		 	<%= breadcrumbs display_single_fragment: true, style: :bootstrap, separator: '', class: 'breadcrumb' %>	
-		 	<%= render 'elements/facebook_sdk' %>
 			<%= yield %>
 		</div>	
+	    <%= render "elements/footer" %> 
 	</body>
 </html>

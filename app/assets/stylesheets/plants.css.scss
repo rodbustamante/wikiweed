@@ -1,11 +1,89 @@
 // Place all the styles related to the plant controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//@import "elements/colors"
+
 .main {
 	.container-liquid {
-		height: 500px;
+		height: 400px;
 		overflow: hidden;
-		margin-top: -23px;
 		opacity: 0.9;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.container {
+		.comments {
+			margin-top: 10px;
+			.comment {
+				width: 100%;
+				margin-bottom: 15px;
+				border-bottom: solid 1px #ECEBEB;
+				float: left;
+				.comment-header {
+					width: 100%;
+					.comment-avatar {
+						width: 60px;
+						height: 60px;
+						position: relative;
+						display: block;
+						float: left; 
+					}
+					.comment-data {
+						padding-left: 10px;
+						width: 90%;
+						h4.comment-user {
+							font-size: 19px;
+							color: #db3a1b;
+							margin-bottom: 15px;
+							span {
+								font-size: 12px;
+								float: right;
+								color: gray;
+							} 
+						}
+						h4.comment-title {
+							font-size: 14px;
+							margin-top: 25px;
+							margin-bottom: 0;
+							font-weight: 600;
+						}
+						.stars {
+							background: url('/assets/stars_sprite_mini.png');
+							height: 21px;
+							width: 73px;
+							display: block;
+							background-size: 150px 20px;
+							-webkit-background-size: 150px 20px;
+						}
+						.rate-0 {
+							background-position-x: 77px;
+						}
+						.rate-1 {
+							background-position-x: 92px;
+						}
+						.rate-2 {
+							background-position-x: 107px;
+						}
+						.rate-3 {
+							background-position-x: 121px;
+						}
+						.rate-4 {
+							background-position-x: 136px;
+						}
+						.rate-5 {
+							background-position-x: 0px;
+						}
+					}
+				}
+				.comment-body {
+					top: 2px;
+					width: 100%;
+					overflow: hidden;
+					vertical-align: top;
+					display: table-cell;
+					padding: 10px 10px 10px 70px;
+				}
+			}
+		}
 	}
 } 

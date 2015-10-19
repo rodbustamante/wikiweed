@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   #passwords: "users/passwords",
   #omniauth_callbacks: "users/omniauth_callbacks"}
 
-  resources :plants, :path => 'plantas'
+  resources :plants, :path => 'plantas' do 
+    resources :reviews, :path => 'comentarios', only: [:create]
+  end 
   resources :categories, :path => 'categorias'
   resources :strains, :path => 'cepas'
 

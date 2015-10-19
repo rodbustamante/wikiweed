@@ -7,6 +7,7 @@ class PlantsController < ApplicationController
 
 	def show
 		@plant = Plant.find_by_slug(params[:id])
+		@review = Review.new
 
 		if !@plant.nil? 
 			@title = @plant.name.capitalize

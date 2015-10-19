@@ -1,33 +1,102 @@
 <% breadcrumb @plant %>
-<div class="container-liquid margin-bottom-10">
-	<% if !@plant.nil? %>
-		<div class="row">
-			<%= image_tag(@plant.image, width: '100%') %>			
-		</div>	
-	<% else %>	
-		<%= image_tag('hola', width: '100%') %>			
-	<% end %>	
+<div class="container-liquid margin-bottom-10" style="background-image: <%= if !@plant.nil? then 'url(' + image_path(@plant.image) + ')' or 'url(' + image_path('hola') end %>" >	
 </div>
-<!-- <div class="container">
-	<div class="row margin-bottom-40">
-		<div class="col-md-12 col-sm-12">
-			<h1>
-				<% if !@plant.nil? %>
-					<%= @plant.name %>
-				<% else %>
-					<%= 'LA PLANTA QUE BUSCAS NO EXISTE.........ME LA FUME.' %>
-				<% end %>
-			</h1>	
-			
-			<div class="content-page center">
-				<div class="row">
-					<div class="col-md-12">
-						<h3>Resumen</h3>
-						<p><%= @plant.summary %></p>
 
-					</div>	
-				</div>
+<div class="container margin-bottom-20">
+	<div class="row">
+		<div class="col-md-2 col-sm-2"></div>
+		<div class="col-md-8 col-sm-8">
+			<h1><%= @plant.name %></h1>	
+			
+			<div class="row margin-bottom-10">
+				<div class="col-md-12 col-sm-12">
+					<% if !@plant.summary.nil? %>
+						<h3><%= "Resumen" %></h3>
+						<p><%= @plant.summary %></p>
+					<% end %>
+				</div>	
 			</div>
+			
+			<div class="row margin-bottom-10">
+				<div class="col-md-12 col-sm-12">
+					<% if !@plant.characteristics.nil? %>
+						<h3><%= "Características" %></h3>
+						<p><%= @plant.characteristics.html_safe %></p>
+					<% end %>
+				</div>	
+			</div>
+			
+			<div class="row margin-bottom-10">
+				<div class="col-md-12 col-sm-12">
+					<% if !@plant.seed_bank.nil? %>
+						<h3><%= "Banco" %></h3>
+						<%= image_tag @plant.seed_bank.image, alt: @plant.seed_bank.name, size: "60x60" %>
+					<% end %>
+				</div>	
+			</div>	
+
+			<div class="row margin-bottom-10">
+				<div class="col-md-12 col-sm-12">
+					<% if !@plant.video.nil? %>
+						<h3><%= "Video" %></h3>
+						<%= render "elements/plant_youtube_iframe" %>
+					<% end %>
+				</div>	
+			</div>
+
+			<div class="row margin-bottom-10">
+				<div class="col-md-12 col-sm-12">
+					<% if !@plant.reviews.nil? %>
+						<h3><%= "Comentarios" %></h3>
+						<div class="comments">
+							<% @plant.reviews.each do |review| %>
+								<div class="comment">
+									<div class="comment-header pull-left">
+										<img class="comment-avatar" src="http://placehold.it/60x60" alt="Avatar">
+										<div class="comment-data pull-left">
+											<h4 class="comment-user"><%= review.user.email %>
+												<span><%= review.created_at.strftime("%d/%m/%Y") %></span>
+											</h4>
+											
+											<h4 class="comment-title"><%= review.title %><i class="pull-right stars rate-<%= review.score %>"></i> </h4>
+										</div>
+									</div>
+									<div class="comment-body pull-left">
+										<p><%= review.body %></p>
+									</div>	
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>	
+			</div>
+
+			<div class="row margin-bottom-10">
+				<div class="col-md-12 col-sm-12">
+					<h3><%= "Dejar Comentario" %></h3>
+					<% if user_signed_in? %>
+						<%= form_for([@plant, @review], method: "post", remote: true, html: {:"data-type" => :"json", class: "form-review"}) do |f| %>
+							
+							<div class="form-group">
+								<%= f.label(:title, "Titulo") %>	
+								<%= f.text_field(:title,  class: "form-control" ) %>
+							</div>
+							<div class="form-group">
+								<%= f.label(:body, "Comentario") %>	
+								<%= f.text_area(:body,  class: "form-control", size: "12x6" ) %>
+							</div>
+								<%= f.submit("Enviar", class: "btn btn-success review-btn") %>	
+						<% end %>
+					<% else %>
+						<p class="alert">
+							<%= "Para dejar comentarios debes " %>
+							<%= link_to 'Iniciar Sesion', new_user_session_path %>
+						</p>
+					<% end %>
+				</div>	
+			</div>	
+
 		</div>
+		<div class="col-md-2 col-sm-2"></div>
 	</div>
-</div> -->		
+</div>		
