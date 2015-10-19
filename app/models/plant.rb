@@ -1,7 +1,9 @@
 class Plant < ActiveRecord::Base
 	belongs_to :family 
 	belongs_to :strain 
+	belongs_to :seed_bank 
 	has_many :has_categories
+	has_many :reviews
 
 	#scopes
 	scope :starts_with, -> (name) {select("id, name").where("name LIKE ?", "%#{name}%")}
