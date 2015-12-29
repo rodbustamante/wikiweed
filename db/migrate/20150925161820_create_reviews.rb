@@ -3,7 +3,7 @@ class CreateReviews < ActiveRecord::Migration
     create_table :reviews do |t|
       t.string :title
       t.text :body
-      t.integer :score
+      t.integer :score, default: 0
       t.references :plant, index: true
 
       t.timestamps

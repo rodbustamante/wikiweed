@@ -73,15 +73,23 @@
 
 			<div class="row margin-bottom-10">
 				<div class="col-md-12 col-sm-12">
-					<h3><%= "Dejar Comentario" %></h3>
+					<hgroup class="comment-form-title">
+						<p class="bg-success text-success msg-review-success" style="display:none">Tu Comentario ha sido agregado.</p>
+						<p class="bg-danger text-danger msg-review-error" style="display:none">Ha ocurrido un error al agregar el comentario.</p>
+						<h3><%= "Dejar Comentario" %></h3>
+					</hgroup>
 					<% if user_signed_in? %>
-						<%= form_for([@plant, @review], method: "post", remote: true, html: {:"data-type" => :"json", class: "form-review"}) do |f| %>
+						<%= form_for([@plant, @review], method: "post", remote: true, html: {id: "comments-form", class: "form-review", :"data-type" => "json"}) do |f| %>
 							
 							<div class="form-group">
+								<div id="star"></div>
+							</div>	
+							
+							<div class="form-group <%= @review.errors[:title].any? ? "error" : "" %>">
 								<%= f.label(:title, "Titulo") %>	
 								<%= f.text_field(:title,  class: "form-control" ) %>
 							</div>
-							<div class="form-group">
+							<div class="form-group <%= @review.errors[:body].any? ? "error" : "" %>">
 								<%= f.label(:body, "Comentario") %>	
 								<%= f.text_area(:body,  class: "form-control", size: "12x6" ) %>
 							</div>
