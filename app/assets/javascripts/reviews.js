@@ -1,7 +1,9 @@
 $(document).on('ajax:success', 'form#comments-form', function(ev, data) {
-	if (data.score === null) {
-		data.score = 0;
+	console.log(data);
+	if (data.review.score === null) {
+		data.review.score = 0;
 	}
+
 	var date = new Date(data.review.created_at);
 
 	data.review.created_at = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();

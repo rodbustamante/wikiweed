@@ -12,6 +12,11 @@
 		background-size: cover;
 	}
 	.container {
+		.information-box {
+			border-bottom: 1px solid #d4d4d4;
+			padding-bottom: 20px;
+			padding-top: 15px;
+		}
 		.comments {
 			margin-top: 10px;
 			.comment {

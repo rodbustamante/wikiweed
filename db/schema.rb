@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130135216) do
+ActiveRecord::Schema.define(version: 20151229203401) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -99,21 +99,17 @@ ActiveRecord::Schema.define(version: 20151130135216) do
     t.integer  "family_id"
     t.integer  "seed_bank_id"
     t.string   "slug"
-    t.integer  "strain_id_id"
     t.integer  "strain_id"
   end
 
   add_index "plants", ["strain_id"], name: "index_plants_on_strain_id", using: :btree
-  add_index "plants", ["strain_id_id"], name: "index_plants_on_strain_id_id", using: :btree
 
   create_table "reviews", force: true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.integer  "score"
-    t.integer  "plant_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
+    t.string  "title"
+    t.string  "text"
+    t.integer "score",    default: 0
+    t.integer "plant_id"
+    t.integer "user_id"
   end
 
   add_index "reviews", ["plant_id"], name: "index_reviews_on_plant_id", using: :btree
