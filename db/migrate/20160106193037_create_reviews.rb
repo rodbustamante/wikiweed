@@ -5,8 +5,7 @@ class CreateReviews < ActiveRecord::Migration
       t.text :body
       t.integer :score
       t.references :plant, index: true
-
-      t.timestamps
+      t.references :user, index: true
     end
   end
 end

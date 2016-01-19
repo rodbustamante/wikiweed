@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   end 
   resources :categories, :path => 'categorias'
   resources :strains, :path => 'cepas'
+  resources :searches, :path => 'busquedas'
 
+  get 'searches/search'
   post 'plants/autocomplete/:name', :to => 'plants#autocomplete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

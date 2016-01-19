@@ -12,6 +12,11 @@
 		background-size: cover;
 	}
 	.container {
+		.information-box {
+			border-bottom: 1px solid #d4d4d4;
+			padding-bottom: 20px;
+			padding-top: 15px;
+		}
 		.comments {
 			margin-top: 10px;
 			.comment {
@@ -48,12 +53,12 @@
 							font-weight: 600;
 						}
 						.stars {
-							background: url('/assets/stars_sprite_mini.png');
-							height: 21px;
-							width: 73px;
+							background: url('/assets/star-on.png');
+							background-size: 16px;
+							height: 16px;
+							width: 80px;
 							display: block;
-							background-size: 150px 20px;
-							-webkit-background-size: 150px 20px;
+							-webkit-background-size: 16px;
 						}
 						.rate-0 {
 							background-position-x: 77px;
@@ -83,6 +88,11 @@
 					display: table-cell;
 					padding: 10px 10px 10px 70px;
 				}
+			}
+		}
+		.comment-form-title {
+			.msg-review-success, .msg-review-error {
+				padding: 5px 10px;
 			}
 		}
 	}

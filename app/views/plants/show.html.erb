@@ -8,45 +8,45 @@
 		<div class="col-md-8 col-sm-8">
 			<h1><%= @plant.name %></h1>	
 			
-			<div class="row margin-bottom-10">
-				<div class="col-md-12 col-sm-12">
-					<% if !@plant.summary.nil? %>
+			<div class="row">
+				<% if !@plant.summary.nil? %>
+					<div class="col-md-12 col-sm-12 information-box">
 						<h3><%= "Resumen" %></h3>
 						<p><%= @plant.summary %></p>
-					<% end %>
-				</div>	
+					</div>	
+				<% end %>
 			</div>
 			
-			<div class="row margin-bottom-10">
-				<div class="col-md-12 col-sm-12">
-					<% if !@plant.characteristics.nil? %>
+			<div class="row">
+				<% if !@plant.characteristics.nil? %>
+					<div class="col-md-12 col-sm-12 information-box">
 						<h3><%= "Características" %></h3>
 						<p><%= @plant.characteristics.html_safe %></p>
-					<% end %>
-				</div>	
+					</div>	
+				<% end %>
 			</div>
 			
-			<div class="row margin-bottom-10">
-				<div class="col-md-12 col-sm-12">
-					<% if !@plant.seed_bank.nil? %>
+			<div class="row">
+				<% if !@plant.seed_bank.nil? %>
+					<div class="col-md-12 col-sm-12 information-box">
 						<h3><%= "Banco" %></h3>
 						<%= image_tag @plant.seed_bank.image, alt: @plant.seed_bank.name, size: "60x60" %>
-					<% end %>
-				</div>	
+					</div>	
+				<% end %>
 			</div>	
 
-			<div class="row margin-bottom-10">
-				<div class="col-md-12 col-sm-12">
-					<% if !@plant.video.nil? %>
+			<div class="row">
+				<% if !@plant.video.nil? %>
+					<div class="col-md-12 col-sm-12 information-box">
 						<h3><%= "Video" %></h3>
 						<%= render "elements/plant_youtube_iframe" %>
-					<% end %>
-				</div>	
+					</div>	
+				<% end %>
 			</div>
 
-			<div class="row margin-bottom-10">
-				<div class="col-md-12 col-sm-12">
-					<% if !@plant.reviews.nil? %>
+			<div class="row">
+				<% if !@plant.reviews.nil? %>
+					<div class="col-md-12 col-sm-12 information-box">
 						<h3><%= "Comentarios" %></h3>
 						<div class="comments">
 							<% @plant.reviews.each do |review| %>
@@ -54,7 +54,7 @@
 									<div class="comment-header pull-left">
 										<img class="comment-avatar" src="http://placehold.it/60x60" alt="Avatar">
 										<div class="comment-data pull-left">
-											<h4 class="comment-user"><%= review.user.email %>
+											<h4 class="comment-user"><%= review.user.username %>
 												<span><%= review.created_at.strftime("%d/%m/%Y") %></span>
 											</h4>
 											
@@ -67,21 +67,29 @@
 								</div>
 							<% end %>
 						</div>
-					<% end %>
-				</div>	
+					</div>	
+				<% end %>
 			</div>
 
-			<div class="row margin-bottom-10">
-				<div class="col-md-12 col-sm-12">
-					<h3><%= "Dejar Comentario" %></h3>
+			<div class="row">
+				<div class="col-md-12 col-sm-12 padding-top-20">
+					<hgroup class="comment-form-title">
+						<p class="bg-success text-success msg-review-success" style="display:none">Tu Comentario ha sido agregado.</p>
+						<p class="bg-danger text-danger msg-review-error" style="display:none">Ha ocurrido un error al agregar el comentario.</p>
+						<h3><%= "Dejar Comentario" %></h3>
+					</hgroup>
 					<% if user_signed_in? %>
-						<%= form_for([@plant, @review], method: "post", remote: true, html: {:"data-type" => :"json", class: "form-review"}) do |f| %>
+						<%= form_for([@plant, @review], method: "post", remote: true, html: {id: "comments-form", class: "form-review", :"data-type" => "json"}) do |f| %>
 							
 							<div class="form-group">
+								<div id="star"></div>
+							</div>	
+							
+							<div class="form-group <%= @review.errors[:title].any? ? "error" : "" %>">
 								<%= f.label(:title, "Titulo") %>	
 								<%= f.text_field(:title,  class: "form-control" ) %>
 							</div>
-							<div class="form-group">
+							<div class="form-group <%= @review.errors[:body].any? ? "error" : "" %>">
 								<%= f.label(:body, "Comentario") %>	
 								<%= f.text_area(:body,  class: "form-control", size: "12x6" ) %>
 							</div>
@@ -90,7 +98,7 @@
 					<% else %>
 						<p class="alert">
 							<%= "Para dejar comentarios debes " %>
-							<%= link_to 'Iniciar Sesion', new_user_session_path %>
+							<%= link_to 'Iniciar Sesion', new_user_session_path, :class => 'sign-in' %>
 						</p>
 					<% end %>
 				</div>	

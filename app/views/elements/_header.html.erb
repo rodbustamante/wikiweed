@@ -7,33 +7,50 @@
 		 		</a>
     		</div>	
     		<div class="col-md-6 col-sm-6 search-varieties">
-				<%= search_field(:option, :search, :placeholder => "Encuentra variedades", :class => "search-plant", :remote => true) %>
-				<div class="search-results hide container pull-left col-md-6 col-sm-6">
+				<%= form_tag searches_search_path, method: :get, :remote => true do %>
+					<%= search_field(:keyword, nil, :placeholder => "Encuentra variedades", :autocomplete => "off", :class => "search-plant", :remote => true) %>
+				<% end %>
+				<div class="search-results container pull-left col-md-6 col-sm-6">
 					<ul class="list-unstyled">
 					</ul>
 				</div>
-
     		</div>	
     		<div class="col-md-3 col-sm-3">
-    			<ul class="list-login list-unstyled list-inline pull-right">
-    				<% if user_signed_in? %>
-                    	<li>
-                    		<%= link_to 'Perfil', edit_user_registration_path %>             
+				<% if user_signed_in? %>
+	    			<ul class="user-logged list-login list-unstyled list-inline pull-right">
+                    	<li class="dropdown">
+                    		<%= link_to "#{current_user.username} <i class='fa fa-caret-down pull-right'></i>".html_safe, 'javascript:void(0);', :class => 'dropdown-toggle', :"data-toggle" => 'dropdown' %>
+                    		<ul class="dropdown-menu dropdown-menu-profile">
+								<li>
+									<%= link_to '<i class="fa fa-user"></i> Mi Perfil'.html_safe, edit_user_registration_path, :class => 'profile' %>
+								</li>
+								<li>
+									<%= link_to '<i class="fa fa-sign-out"></i> Cerrar Sesion'.html_safe, destroy_user_session_path, method: :delete, :class => '' %>
+								</li>
+							</ul>             
                     	</li>
-                    	<li>
-                    		<%= link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete %>
-                    	</li>
-                    <% else %>	
+	                </ul>
+                <% else %>	
+					<ul class="list-login list-unstyled list-inline pull-right">
 						<li class="col-md">
-							<%= link_to 'Registrate', new_user_registration_path %>
+							<%= link_to 'Registrate', new_user_registration_path, :class => 'sign-up' %>
 						</li>
                     	<li class="col-md">
-							<%= link_to 'Iniciar Sesion', new_user_session_path %>
+							<%= link_to 'Iniciar Sesion', new_user_session_path, :class => 'sign-in' %>
 						</li>
-                    <% end %>	
-                </ul>
+            		</ul>
+                <% end %>	
     		</div>	
-    	</div>	    		
+    	</div>
+    	<% if !flash.nil? %>
+	    	<div class="row">
+	    		<div class="col-md-12 col-sm-12">
+		    		<% flash.each do |key, value| %>
+				    	<p class="bg-info text-info msg-success"><%= value %><i class="pull-right fa fa-times"></i></p>
+				    <% end %>
+	    		</div>
+	    	</div>	    		
+    	<% end %>
     </div>        
 </div>
 

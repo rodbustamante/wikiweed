@@ -10,10 +10,20 @@ class ReviewsController < ApplicationController
 		@review.plant = @plant
 
 		respond_to do |format|
-			if @review.save
-				format.json {render json: "Comentario agregado.", status: :ok }
+			if @review.valid?
+				if @review.save
+					format.json {
+									render json: {
+											:review => @review,
+											:user => @review.user,
+											}, 
+									status: :ok
+								}
+				else
+					format.json {render json: @review.errors, status: :unprocessable_entity }
+				end
 			else
-				format.json {render json: @review.errors, status: :unprocessable_entity }
+				format.json {render json: @review.errors, status: :unprocessable_entity}
 			end
 		end
 	end
