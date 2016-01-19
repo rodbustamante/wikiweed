@@ -38,18 +38,31 @@ body
 
 a 
  outline: 0
+ color: #5f6d7b
  text-decoration: none
  &:focus 
   outline: 0
+  color: #db3a1b
   text-decoration: none
 
  &:hover 
   outline: 0
-  text-decoration: none
+  color: #db3a1b !important
   text-decoration: underline
 
  &:active 
   outline: 0
+  color: #db3a1b
+  text-decoration: none
+
+ &:visited 
+  outline: 0
+  color: #db3a1b
+  text-decoration: none
+
+ &:link 
+  outline: 0
+  color: #db3a1b
   text-decoration: none
 
 
@@ -245,8 +258,10 @@ div
  padding-top: 10px
  line-height: 1.2
  background: $white
+ i
+  color: #808080
  a 
-  color: $color_nevada_approx
+  color: $color_punch_approx !important
   &:hover 
 
   &:focus 
@@ -269,9 +284,10 @@ div
    padding-top: 30px
    li
     a
+     color: #5f6d7b !important
      font-weight: 600 
     a:hover
-     color: $color_punch_approx
+     color: $color_punch_approx !important
      text-decoration: none
 
 
@@ -287,6 +303,40 @@ div
     outline: none
     box-shadow: none
     min-height: 42px
+   .open
+    position: absolute
+    z-index: 1000
+    background-color: #fff
+    display: block
+    padding: 0
+    margin-top: 5px
+    width: 100%
+    border: 1px solid #d4d4d4
+    border-radius: 5px
+    -webkit-border-radius: 5px
+    -moz-border-radius: 5px
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2)
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2)
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2)
+    ul
+     padding: 0
+     margin: 0
+     padding-top: 10px
+     li.group
+      font-weight: 600
+      padding: 5px 15px
+      margin-bottom: 5px
+      text-transform: uppercase
+      border: inherit
+     li
+      padding: 5px 15px
+      .result
+       color: #5f6d7b !important
+      .result:hover
+       color: $color_punch_approx !important
+       text-decoration: none
+
+
 
 .header 
  //If you use compass, instead of the line below you could use + box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
@@ -345,8 +395,7 @@ div
     &:focus 
      color: $color_punch_approx
      text-decoration: none
-
-
+ 
  .dropdown 
   position: static
 
@@ -389,7 +438,6 @@ div
    > a 
     padding: 10px 15px
     font-weight: 400
-    color: $color_raven_approx
 
 
   .dropdown-menu 
@@ -411,12 +459,11 @@ div
 
    > a:hover 
     background: $color_punch_approx
-    color: $white
+    color: $white !important
 
    &.active > a 
     background: $color_punch_approx
     color: $white
-
 
   .header-navigation-content-ext li 
    border: none
@@ -505,7 +552,19 @@ div
    background: $color_punch_approx
    color: $white
 
-
+.dropdown-menu-profile
+ li
+  padding: 0
+  border-right: 0px solid !important
+  a
+   color: #333333 !important
+   border-right: inherit
+   font-weight: 400 !important
+   i
+    color: #808080
+    padding-right: 5px
+  a:hover
+   color: $color_punch_approx
 
 @media(min-width: 1025px) 
  .header-navigation > ul > li:hover > .dropdown-menu 
@@ -681,7 +740,7 @@ div
 
 
 .breadcrumb 
- background: rgba(212, 71, 39, 0.5) !important
+ background: rgba(212, 71, 39, 0.4) !important
  font: 14px $font_0, $font_2
  color: $white
  margin-bottom: 22px
@@ -691,7 +750,8 @@ div
  padding: 10px 20px 10px 40px !important
  > 
  .active 
-  color: $color_punch_approx !important
+  color: #F12B24 !important
+  font-weight: 600
  a, a:hover 
   color: $white
  
@@ -916,4 +976,9 @@ div
   font-style: normal
   color: $color_trinidad_approx
 
+.msg-success, .msg-warning, .msg-error 
+ padding: 5px 10px
+ font-weight: 600
 
+.fa-times:hover
+ cursor: pointer

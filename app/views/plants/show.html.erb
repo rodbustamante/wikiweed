@@ -54,7 +54,7 @@
 									<div class="comment-header pull-left">
 										<img class="comment-avatar" src="http://placehold.it/60x60" alt="Avatar">
 										<div class="comment-data pull-left">
-											<h4 class="comment-user"><%= review.user.email %>
+											<h4 class="comment-user"><%= review.user.username %>
 												<span><%= review.created_at.strftime("%d/%m/%Y") %></span>
 											</h4>
 											
@@ -98,7 +98,7 @@
 					<% else %>
 						<p class="alert">
 							<%= "Para dejar comentarios debes " %>
-							<%= link_to 'Iniciar Sesion', new_user_session_path %>
+							<%= link_to 'Iniciar Sesion', new_user_session_path, :class => 'sign-in' %>
 						</p>
 					<% end %>
 				</div>	

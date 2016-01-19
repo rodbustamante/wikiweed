@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151229203401) do
+ActiveRecord::Schema.define(version: 20160106193543) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -105,11 +105,13 @@ ActiveRecord::Schema.define(version: 20151229203401) do
   add_index "plants", ["strain_id"], name: "index_plants_on_strain_id", using: :btree
 
   create_table "reviews", force: true do |t|
-    t.string  "title"
-    t.string  "text"
-    t.integer "score",    default: 0
-    t.integer "plant_id"
-    t.integer "user_id"
+    t.string   "title"
+    t.text     "body"
+    t.integer  "score",      default: 0
+    t.integer  "plant_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "reviews", ["plant_id"], name: "index_reviews_on_plant_id", using: :btree
@@ -147,6 +149,7 @@ ActiveRecord::Schema.define(version: 20151229203401) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

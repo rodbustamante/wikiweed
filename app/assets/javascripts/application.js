@@ -15,5 +15,77 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require fancybox
 //= require_tree .
 //= require jquery.raty
+
+$(function () { 
+	$("i.fa-times").on('click', function(ev) {
+		$(this).parent('p').fadeOut('slow/400/fast', function() {
+			
+		});
+	});
+
+	$("a.sign-in").fancybox({
+	 	type: 'iframe',
+	 	padding: 15,
+	 	height: 380,
+	 	titleShow: false,
+	 	onClosed: function() {
+          parent.location.reload(true);
+        }
+	});
+
+	$("a.sign-up").fancybox({
+	 	type: 'iframe',
+	 	padding: 15,
+	 	titleShow: false,
+	 	onClosed: function() {
+          parent.location.reload(true);
+        }
+	});
+
+	$("a.profile").fancybox({
+		type: 'iframe',
+		height: 600,
+		padding: 15,
+		titleShow: false,
+		onClosed: function() {
+	 		parent.location.reload(true);
+		}
+	});
+
+	$(".search-plant").on('keyup', function(event) {
+		var keyword = $(this)[0].value;
+		$(".search-results").children('ul').html('');
+		
+		if ($(".search-results").hasClass('open')) {
+			$(".search-results").removeClass('open');
+		}
+
+		if (keyword.length > 0) {	
+			$.ajax({
+				url: '/searches/search/?keyword=' + keyword,
+				type: 'GET',
+				dataType: 'JSON',
+				success: function (data) {
+					$(".search-results").addClass('open');
+					console.log(data)
+					if (data.length > 0) {
+						
+						for (var i = 0; i < data.length; i++) {
+							$(".search-results").children('ul').append('<li class="group">' + data[i].group + '</li>');
+
+							for (var x = 0; x < data[i].results.length; x++) {
+								$(".search-results").children('ul').append('<li><a class="result" href="/plantas/' + data[i].results[x].slug + '">' + data[i].results[x].name + '</a></li>');
+							}
+						};
+					} else {
+						$(".search-results").children('ul').append('<li><a class="result">No se encontraron resultados.</a></li>');
+					}
+				}
+			});	
+		}
+	});
+
+});
