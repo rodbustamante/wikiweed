@@ -303,6 +303,8 @@ div
     outline: none
     box-shadow: none
     min-height: 42px
+    background: url(/assets/search.png) no-repeat right
+    padding-right: 40px
    .open
     position: absolute
     z-index: 1000
@@ -335,6 +337,8 @@ div
       .result:hover
        color: $color_punch_approx !important
        text-decoration: none
+     li:last-child
+      margin-bottom: 10px
 
 
 
@@ -982,3 +986,29 @@ div
 
 .fa-times:hover
  cursor: pointer
+
+.pagination
+ font-style: 13px
+ .disabled
+  display: none
+ em 
+  background-color: #F5F5F5
+  color: #999
+  cursor: default
+ span, em, a, .next_page
+  float: left 
+  padding: 0 14px
+  line-height: 34px
+  text-decoration: none
+  border: 1px solid #DDD
+  color: #333
+  border-left-width: 0
+ span:hover, em:hover, a:hover, .next_page:hover
+  text-decoration: none
+  color: $color_punch_approx
+
+.pagination:first-child
+ border-left: 1px solid #DDD
+ -webkit-border-radius: 3px 0 0 3px
+ -moz-border-radius: 3px 0 0 3px
+ border-radius: 3px 0 0 3px

@@ -20,6 +20,63 @@
 //= require jquery.raty
 
 $(function () { 
+	
+	$(document).on('click', function(e) {
+		trigger = $(".search-results");
+
+		if (trigger !== e.target && !trigger.has(e.target).length && trigger.hasClass('open') ) {
+			$(".search-results").removeClass('open').children('ul').html('');
+		}
+	});
+
+	var typingTimer;                //timer identifier
+	var doneTypingInterval = 1000;  //time in ms, 5 second for example
+	var $input = $('.search-plant');
+
+	//on keyup, start the countdown
+	$input.on('keyup', function () {
+		clearTimeout(typingTimer);
+		typingTimer = setTimeout(doneTyping, doneTypingInterval);
+	});
+
+	//on keydown, clear the countdown 
+	$input.on('keydown', function () {
+		clearTimeout(typingTimer);
+	});
+
+	//user is "finished typing," do something
+	function doneTyping () {
+	  	var keyword = $input[0].value;
+		
+		$(".search-results").children('ul').html('');
+		
+		if (keyword.length) {	
+			$.ajax({
+				url: '/searches/search/?keyword=' + keyword,
+				type: 'GET',
+				dataType: 'JSON',
+				success: function (data) {
+					if (!$(".search-results").hasClass('open')) {
+						$(".search-results").addClass('open');
+					}
+
+					if (data.length > 0) {
+						
+						for (var i = 0; i < data.length; i++) {
+							$(".search-results").children('ul').append('<li class="group">' + data[i].group + '</li>');
+
+							for (var x = 0; x < data[i].results.length; x++) {
+								$(".search-results").children('ul').append('<li><a class="result" href="/plantas/' + data[i].results[x].slug + '">' + data[i].results[x].name + '</a></li>');
+							}
+						};
+					} else {
+						$(".search-results").children('ul').append('<li><a class="result">No se encontraron resultados.</a></li>');
+					}
+				}
+			});	
+		}
+	}
+	
 	$("i.fa-times").on('click', function(ev) {
 		$(this).parent('p').fadeOut('slow/400/fast', function() {
 			
@@ -54,38 +111,4 @@ $(function () {
 	 		parent.location.reload(true);
 		}
 	});
-
-	$(".search-plant").on('keyup', function(event) {
-		var keyword = $(this)[0].value;
-		$(".search-results").children('ul').html('');
-		
-		if ($(".search-results").hasClass('open')) {
-			$(".search-results").removeClass('open');
-		}
-
-		if (keyword.length > 0) {	
-			$.ajax({
-				url: '/searches/search/?keyword=' + keyword,
-				type: 'GET',
-				dataType: 'JSON',
-				success: function (data) {
-					$(".search-results").addClass('open');
-					console.log(data)
-					if (data.length > 0) {
-						
-						for (var i = 0; i < data.length; i++) {
-							$(".search-results").children('ul').append('<li class="group">' + data[i].group + '</li>');
-
-							for (var x = 0; x < data[i].results.length; x++) {
-								$(".search-results").children('ul').append('<li><a class="result" href="/plantas/' + data[i].results[x].slug + '">' + data[i].results[x].name + '</a></li>');
-							}
-						};
-					} else {
-						$(".search-results").children('ul').append('<li><a class="result">No se encontraron resultados.</a></li>');
-					}
-				}
-			});	
-		}
-	});
-
 });

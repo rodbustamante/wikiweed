@@ -1,13 +1,49 @@
 <% breadcrumb @strain %>
-<div class="container">
-	<div class="row margin-bottom-40">
-		<div class="col-md-12 col-sm-12">
-			<h2><%= @strain.name %></h2>
-			<div>
-				<% @strain.plants.each do |plant| %>
-					<%= link_to plant.name, plant %>						
-				<% end %>
+<div class="container-liquid strain-category margin-bottom-10" style="background-image: <%= if !@strain.nil? then 'url(' + image_path(@strain.image) + ')' or 'url(' + image_path('hola') end %>" >	
+</div>
+<div class="container margin-bottom-20">
+	<div class="row">
+		<div class="col-md-2 col-sm-2"></div>
+		<div class="col-md-8 col-sm-8">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 information-box">
+					<h2><%= @strain.name %></h2>
+					<p><%= @strain.description %></p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12 col-sm-12 information-box">
+					<% if !@plants.empty? %>
+						<% @plants.each do |plant| %>
+							<a href="<%= plant_path(plant) %>">
+								<div class="plant-card-content">
+									<div class="plant-card-<%= @strain.name .downcase %>">
+										<div class="plant-card-image" style="background-image: url('<%= image_path(plant.image) %>')"></div>
+										<div class="plant-card-detail">
+											<ul class="list-unstyled">
+												<li class="title"><%= plant.name %></li>
+												<li><%= plant.thc %> % THC</li>
+												<li><%= plant.reviews.count %> Evaluaciones</li>
+												
+											</ul>					
+										</div>
+									</div>
+								</div>
+							</a>
+						<% end %>
+					<% else %>
+						<%= "No se encontraron resultados dentro de esta categoría." %>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12 col-sm-12 ">
+					<%= will_paginate @plants %>
+				</div>
 			</div>
 		</div>	
+		<div class="col-md-2 col-sm-2"></div>
 	</div>	
 </div>	
