@@ -11,6 +11,9 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
+	.strain-category {
+		height: 300px !important;
+	}
 	.container {
 		.information-box {
 			border-bottom: 1px solid #d4d4d4;
@@ -53,30 +56,27 @@
 							font-weight: 600;
 						}
 						.stars {
-							background: url('/assets/star-on.png');
-							background-size: 16px;
-							height: 16px;
+							height: 15px;
 							width: 80px;
 							display: block;
-							-webkit-background-size: 16px;
 						}
 						.rate-0 {
-							background-position-x: 77px;
+							background: url(/assets/stars-0.png) no-repeat;
 						}
 						.rate-1 {
-							background-position-x: 92px;
+							background: url(/assets/stars-1.png) no-repeat;
 						}
 						.rate-2 {
-							background-position-x: 107px;
+							background: url(/assets/stars-2.png) no-repeat;
 						}
 						.rate-3 {
-							background-position-x: 121px;
+							background: url(/assets/stars-3.png) no-repeat;
 						}
 						.rate-4 {
-							background-position-x: 136px;
+							background: url(/assets/stars-4.png) no-repeat;
 						}
 						.rate-5 {
-							background-position-x: 0px;
+							background: url(/assets/stars-5.png) no-repeat;
 						}
 					}
 				}

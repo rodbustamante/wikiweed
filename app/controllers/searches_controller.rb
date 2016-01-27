@@ -17,7 +17,6 @@ class SearchesController < ApplicationController
 				})	
 			end
 			
-			#@results.push({'group' => 'Noticias'})
 			respond_to do |format|
 				format.json {render json: @results }
 				format.html {render searches_search_path}

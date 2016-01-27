@@ -7,7 +7,7 @@
 		 		</a>
     		</div>	
     		<div class="col-md-6 col-sm-6 search-varieties">
-				<%= form_tag searches_search_path, method: :get, :remote => true do %>
+				<%= form_tag searches_search_path, method: :get do %>
 					<%= search_field(:keyword, nil, :placeholder => "Encuentra variedades", :autocomplete => "off", :class => "search-plant", :remote => true) %>
 				<% end %>
 				<div class="search-results container pull-left col-md-6 col-sm-6">
