@@ -6,24 +6,30 @@ class ReviewsController < ApplicationController
 	end
 
 	def create
-		@review = current_user.reviews.new(review_params)
-		@review.plant = @plant
+		if user_signed_in?
+			@review = current_user.reviews.new(review_params)
+			@review.plant = @plant
 
-		respond_to do |format|
-			if @review.valid?
-				if @review.save
-					format.json {
-									render json: {
-											:review => @review,
-											:user => @review.user,
-											}, 
-									status: :ok
-								}
+			respond_to do |format|
+				if @review.valid?
+					if @review.save
+						format.json {
+										render json: {
+												:review => @review,
+												:user => @review.user,
+												}, 
+										status: :ok
+									}
+					else
+						format.json {render json: @review.errors, status: :unprocessable_entity }
+					end
 				else
-					format.json {render json: @review.errors, status: :unprocessable_entity }
+					format.json {render json: @review.errors, status: :unprocessable_entity}
 				end
-			else
-				format.json {render json: @review.errors, status: :unprocessable_entity}
+			end
+		else 
+			respond_to do |format|
+				format.json {render json: 'Acción exclusiva sólo para usuarios registrados', status: :unprocessable_entity}
 			end
 		end
 	end

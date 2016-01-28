@@ -18,12 +18,13 @@
 						<% @plants.each do |plant| %>
 							<a href="<%= plant_path(plant) %>">
 								<div class="plant-card-content">
-									<div class="plant-card-<%= @strain.name .downcase %>">
+									<div class="plant-card-<%= @strain.name.downcase %>">
 										<div class="plant-card-image" style="background-image: url('<%= image_path(plant.image) %>')"></div>
 										<div class="plant-card-detail">
 											<ul class="list-unstyled">
 												<li class="title"><%= plant.name %></li>
-												<li><%= plant.thc %> % THC</li>
+												<li>Clasificación: <%= @strain.name %></li>
+												<li>THC: <%= plant.thc %>%</li>
 												<li><%= plant.reviews.count %> Evaluaciones</li>
 												
 											</ul>					
