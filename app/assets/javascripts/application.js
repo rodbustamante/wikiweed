@@ -52,7 +52,7 @@ $(function () {
 		
 		if (keyword.length) {	
 			$.ajax({
-				url: '/searches/search/?keyword=' + keyword,
+				url: '/searches/search_ajax/?keyword=' + keyword,
 				type: 'GET',
 				dataType: 'JSON',
 				success: function (data) {

@@ -5,25 +5,25 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
   pool: 5
   timeout: 5000
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  username: postgres
+  password: shankotr6012
 
 development: &development
-  adapter: mysql2
-  username: root
-  password:
-  host: localhost
-  port: 3306
-  database: wikiweed
+  <<: *default
+  database: wikiweed_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *development
-  database: test.wikiweed
+  <<: *default
+  database: wikiweed_test
 
 production:
-  <<: *development
-  database: production.wikiweed
+  <<: *default
+  database: wikiweed_prod

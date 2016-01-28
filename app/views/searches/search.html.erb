@@ -1,14 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<p>HOLA !!</p>
-	<%= @results %>
-	<% @plants.each do |plant| %>
-		<%= plant.name %>
-	<% end %>
-</body>
-</html>
+<div class="container-liquid strain-category margin-bottom-10" style="background-image: <%= if !@strain.nil? then 'url(' + image_path(@strain.image) + ')' or 'url(' + image_path('hola') end %>" >	
+</div>
+<div class="container margin-bottom-20">
+	<div class="row margin-bottom-20">
+		<div class="col-md-2 col-sm-2"></div>
+		<div class="col-md-8 col-sm-8">
+			<% if !@plants.empty? %>
+				<h3><%= "Variedades que coinciden con tu búsqueda." %></h3>
+				<br>
+				<% @plants.each do |plant| %>
+					<a href="<%= plant_path(plant) %>">
+						<div class="plant-card-content">
+							<div class="plant-card-<%= plant.strain.name.downcase %>">
+								<div class="plant-card-image" style="background-image: url('<%= image_path(plant.image) %>')"></div>
+								<div class="plant-card-detail">
+									<ul class="list-unstyled">
+										<li class="title"><%= plant.name %></li>
+										<li>Clasificación: <%= plant.strain.name %></li>
+										<li>THC: <%= plant.thc %>%</li>
+										<li><%= plant.reviews.count %> Evaluaciones</li>
+										
+									</ul>					
+								</div>
+							</div>
+						</div>
+					</a>
+				<% end %>
+			<% else %>
+				<p><%= "No se encontraron variedades que coincidan con tu búsqueda" %></p>
+			<% end %>
+		</div>
+		<div class="col-md-2 col-sm-2"></div>
+	</div>
+	<div class="row margin-bottom-20">
+		<div class="col-md-2 col-sm-2"></div>
+		<div class="col-md-8 col-sm-8">
+			<h3><%= "Noticias que coinciden con tu búsqueda." %></h3>
+		</div>
+		<div class="col-md-2 col-sm-2"></div>
+	</div>
+</div>

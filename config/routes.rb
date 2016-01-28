@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :strains, :path => 'cepas'
   resources :searches, :path => 'busquedas'
 
+  get 'searches/search_ajax'
   get 'searches/search'
   post 'plants/autocomplete/:name', :to => 'plants#autocomplete'
   # The priority is based upon order of creation: first created -> highest priority.

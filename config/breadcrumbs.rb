@@ -26,6 +26,7 @@ crumb :plant do |plant|
   parent plant.strain
 end
 
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
